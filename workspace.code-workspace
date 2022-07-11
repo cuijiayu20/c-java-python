@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "c++"
+		},
+		{
+			"path": "python"
+		},
+		{
+			"path": "java"
+		},
+		{
+			"path": "else"
+		}
+	],
+	"settings": {
+		"java.project.referencedLibraries": [
+			"lib/**/*.jar",
+			"c:\\Program Files (x86)\\MySQL\\Connector J 8.0\\mysql-connector-java-8.0.29.jar"
+		],
+		"java.project.outputPath": "classput",
+		"java.project.sourcePaths": [
+			"Library-Management-System/util",
+			"Library-Management-System/src",
+			"Library-Management-System/com/java1234"
+		]
+	}
+}
