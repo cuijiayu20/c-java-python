@@ -5,7 +5,7 @@
 # @Software : PyCharm
 import requests
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.options import Options
 from lxml import etree
 from time import sleep
 from concurrent.futures import ThreadPoolExecutor
@@ -22,7 +22,7 @@ print('\n')
 options = Options()
 options.add_argument("--headless")  # 隐藏界面的参数
 # 进行自动化
-diver = webdriver.Edge(options=options)
+diver = webdriver.Chrome(options=options)
 url = 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIzNjY1ODg1NA==&action=getalbum&album_id=1837296374816522241&scene=173&from_msgid=2247556526&from_itemidx=1&count=3&nolastread=1#wechat_redirect'
 diver.get(url)
 print('自动化程序建立完毕')
@@ -75,13 +75,14 @@ def download(urls):
     response_tree = etree.HTML(response.text)
     title = response_tree.xpath('//*[@id="activity-name"]/text()')
     title_1 = re.findall('[^\x00-\xff][a-zA-Z ]*', str(title))  # 文章标题
+    title_2=''.join(title_1)
     path = r'D:\公众号'
     aa = os.path.exists(path)
     if not aa:
         os.mkdir(r'D:\公众号')
     else:
         pass
-    with open(f'D:\\公众号\\{str(title_1)}.txt', 'a', encoding='utf-8') as fin:
+    with open(f'D:\\公众号\\{str(title_2)}.txt', 'a', encoding='utf-8') as fin:
         for count in range(80, 88):
             download_url = response_tree.xpath(f'//*[@id="js_content"]/p[{count}]/span/text()')
             fin.write(str(download_url[0]))
