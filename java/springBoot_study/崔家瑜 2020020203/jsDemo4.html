@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <meta name="viewport" content="width=device-width, initial-
+    scale=1.0, user-scalable=no" charset="utf-8">
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td id="check_content" >崔家瑜2020020203的华为手机</td>
+                <td><input type="button" onclick="hidden_check();" value="删除"/></td>
+                <td><input type="button" onclick="show_check();" value="恢复"></td>
+            </tr>
+        </table>
+        <script>
+            hidden_check(()=>{
+                
+                if(confirm('确实要删除吗?')) {
+                    var content = document.getElementById("check_content");
+                    content.style.visibility= "hidden";
+                    }
+                }
+            ),
+
+
+                
+            
+            show_check(()=>{
+                var content = document.getElementById("check_content");
+                content.style.visibility= "visible";
+            })
+        </script>
+    </body>
+
+</html>
